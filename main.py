@@ -30,9 +30,11 @@ cypher_flag = input()
 
 alphabet = file_handler("alphabet.txt")
 text = file_handler("in.txt")
-key = file_handler("key")
+key = file_handler("key.txt")
 
-options[cypher](alphabet, text, key)
+print(text)
+
+options[cypher](alphabet, text, key, cypher_flag)
 
 if __name__ == '__main__':
     print("Hello crypto")
