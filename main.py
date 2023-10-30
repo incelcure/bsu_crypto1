@@ -30,11 +30,19 @@ cypher_flag = input()
 
 alphabet = file_handler("alphabet.txt")
 text = file_handler("in.txt")
-key = file_handler("key.txt")
 
-print(text)
+if cypher != "HILL":
+    key = file_handler("key.txt")
+else:
+    with open("key.txt") as k:
+        key = [[] for i in range(2)]
+        for i in range(2):
+            key[i] = [int(t) for t in k.readline().split()]
+print(f"source text {text}")
 
-options[cypher](alphabet, text, key, cypher_flag)
+text_out = options[cypher](alphabet, text, key, cypher_flag)
+o = open('out.txt', 'w', encoding="UTF-8")
+o.write(text_out)
+o.close()
 
-if __name__ == '__main__':
-    print("Hello crypto")
+

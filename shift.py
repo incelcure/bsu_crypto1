@@ -14,8 +14,6 @@ def shift(alphabet: str, text: str, key: str, cypher_flag):
                 text_out += alphabet[(alphabet.find(text[i]) - c) % len(alphabet)]
             else:
                 text_out += " "
+    return text_out
 
-    print(text_out)
-    o = open('out.txt', 'w', encoding="UTF-8")
-    o.write(text_out)
-    o.close()
+
